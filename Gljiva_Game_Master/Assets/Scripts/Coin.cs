@@ -16,4 +16,12 @@ public class Coin : MonoBehaviour
     {
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerManager.numberOfCoins++;//Increment the number of coins
+            Destroy(gameObject);//destroy the coin
+        }
+    }
 }
